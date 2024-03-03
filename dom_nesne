@@ -1,1 +1,67 @@
-https://onuraltuntas61.w3spaces.com/dom_nesne_.html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>DOM Erişim Örnekleri</title>
+<style>
+  .ornek-sinif {
+    color: blue;
+  }
+  #benzersizId {
+    position: relative; /* Konum değişikliği için relative pozisyonlama */
+  }
+  .sekil-degistir {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: all 0.5s; /* Şekil değişikliği için yumuşak geçiş */
+  }
+</style>
+</head>
+<body>
+
+<div id="benzersizId">Ben bir div'im ve benzersiz bir ID'ye sahibim.</div>
+
+<div class="sekil-degistir"></div>
+
+<p class="ornek-sinif">Ben bir paragrafım ve 'ornek-sinif' sınıfına sahibim.</p>
+<p>Bu metnin font büyüklüğü değişecek.</p>
+
+<button onclick="renkDegistir()">Rengi Değiştir</button>
+<button onclick="metinDegistir()">Metni Değiştir</button>
+<button onclick="fontBuyut()">Font Büyüklüğünü Değiştir</button>
+<button onclick="konumDegistir()">Konumunu Değiştir</button>
+<button onclick="sekilDegistir()">Şeklini Değiştir</button>
+
+<script>
+function renkDegistir() {
+  var element = document.getElementById('benzersizId');
+  element.style.color = 'green';
+}
+
+function metinDegistir() {
+  var elementler = document.getElementsByClassName('ornek-sinif');
+  for (var i = 0; i < elementler.length; i++) {
+    elementler[i].textContent = 'Metin değiştirildi!';
+  }
+}
+
+function fontBuyut() {
+  var element = document.querySelector('p');
+  element.style.fontSize = '24px';
+}
+
+function konumDegistir() {
+  var element = document.getElementById('benzersizId');
+  element.style.left = '100px';
+  element.style.top = '50px';
+}
+
+function sekilDegistir() {
+  var element = document.querySelector('.sekil-degistir');
+  element.style.borderRadius = '50%'; // Daire şeklini alması için
+}
+</script>
+
+</body>
+</html>
